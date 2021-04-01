@@ -1,0 +1,11 @@
+
+
+.sign-up-container {
+    height: 175px;
+    width: 200px;
+    display: inline-block;
+    margin-top: 150px;
+    background-color: teal;
+    /* background-size: cover; */
+    /* padding: 20px; */
+}

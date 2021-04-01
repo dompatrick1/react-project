@@ -1,0 +1,240 @@
+
+
+.featured-container {
+    display: grid;
+    background-color:rgb(236, 236, 236);
+    grid-template-columns: 100%;
+    grid-template-rows: 31em 8em 20em 8em 20em 8em 20em 8em 20em 8em;
+    grid-template-areas:
+    "categories"
+    "h1"
+    "fishing"
+    "h2"
+    "hunting"
+    "h3"
+    "hiking"
+    "h4"
+    "camping"
+    "footer";
+}
+
+
+.header {
+    grid-area: categories;
+    padding-top: 40px;
+    background-color: rgb(150, 5, 61);
+    text-align: center;
+}
+
+.header-title {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+    letter-spacing: .05em;
+    word-spacing: .1em;
+    font-weight:lighter;
+    color:rgb(255, 174, 142);
+    margin-bottom: 25px;
+    margin-top: 45px;
+}
+
+.subheader {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    color:rgb(255, 174, 142);
+    margin: 8px;
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-top: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.categories div label {
+    display: block;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    padding-top: .8em;
+    padding-bottom: .4em;
+    color:rgb(231, 221, 190);
+    border-bottom: 1.5px solid lightcoral;
+}
+
+.categories div img {
+    height: 14rem;
+    width: auto;
+    border-radius: 100%;
+    padding-top: .7rem;
+}
+
+.categories div img:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+.fishing {
+    grid-area: fishing;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    padding-right: 30px;
+    padding-left: 30px;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to top, rgb(190, 229, 231), rgb(236, 236, 236));
+}
+
+.fishing div label {
+    display: block;
+    font-family: sans-serif;
+    padding-top: .2em;
+}
+
+.cost {
+    font-weight: bolder;
+    font-size: 1.2em
+}
+
+.fishing-title {
+    grid-area: h1;
+    align-self: center;
+    justify-self: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    border-bottom: 2px solid rgb(190, 229, 231);
+}
+
+.fishing div img {
+    height: 15rem;
+    width: auto;
+    border-radius: 20px;
+}
+
+.fishing div:hover {
+    transform: scale(1.01);
+}
+
+
+
+
+.hunting {
+    grid-area: hunting;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    padding-right: 30px;
+    padding-left: 30px;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to top, rgb(255, 206, 141), rgb(236, 236, 236));
+}
+
+.hunting div label {
+    display: block;
+    font-family: sans-serif;
+    padding-top: .2em;
+}
+
+.hunting-title {
+    grid-area: h2;
+    align-self: center;
+    justify-self: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    border-bottom: 2px solid rgb(255, 206, 141);
+}
+
+.hunting div img {
+    height: 15rem;
+    width: auto;
+    border-radius: 20px;
+}
+
+.hunting div:hover {
+    transform: scale(1.01);
+}
+
+
+
+.hiking {
+    grid-area: hiking;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    padding-right: 30px;
+    padding-left: 30px;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to top, rgb(186, 233, 201), rgb(236, 236, 236));
+}
+
+.hiking div label {
+    display: block;
+    font-family: sans-serif;
+    padding-top: .2em;
+}
+
+.hiking-title {
+    grid-area: h3;
+    align-self: center;
+    justify-self: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    border-bottom: 2px solid rgb(186, 233, 201);
+}
+
+.hiking div img {
+    height: 15rem;
+    width: auto;
+    border-radius: 20px;
+}
+
+.hiking div:hover {
+    transform: scale(1.01);
+}
+
+
+.camping {
+    grid-area: camping;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    padding-right: 30px;
+    padding-left: 30px;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to top, rgb(222, 186, 233), rgb(236, 236, 236));
+}
+
+.camping div label {
+    display: block;
+    font-family: sans-serif;
+    padding-top: .2em;
+}
+
+.camping-title {
+    grid-area: h4;
+    align-self: center;
+    justify-self: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    border-bottom: 2px solid rgb(222, 186, 233);
+}
+
+.camping div img {
+    height: 15rem;
+    width: auto;
+    border-radius: 20px;
+}
+
+.camping div:hover {
+    transform: scale(1.01);
+}

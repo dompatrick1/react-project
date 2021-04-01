@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+}
+
+.navbar-container {
+    background-color: whitesmoke;
+    height: 60px;
+    position:fixed;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    grid-template-areas:
+    "logo search sessionLinks"
+}
+
+.navbar {
+    padding: 0px;
+    margin: 0px;
+    display:inline-block;
+    vertical-align:top;
+}
+
+.logo-link {
+    list-style:none;
+}
+
+.logo {
+    display: inline-block;
+    height: 50px;
+    position:relative;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.sessionLinks {
+    grid-area: sessionLinks;
+    list-style: none;
+    display: flex;
+    text-align: end;
+    justify-self: right;
+    align-self: center;
+    margin-right: 25px;
+    font-size: 20px;
+    text-decoration: inherit;
+    /* justify-content: right; */
+    /* display: inline-block;
+    position: absolute;
+    justify-content: center; */
+}
+
+.login {
+    margin-right: 15px;
+}
+
+._login, ._signup {
+    text-decoration: inherit;
+    color:rgb(41, 44, 46);
+}
+
+.menu {
+    background-color: rgba(228, 228, 228, 0.98);
+    border-radius: 3px;
+    /* margin-top: 10px; */
+}
+
+.profile-button {
+    height: 40px;
+    width: 50px;
+    background-color: rgb(150, 5, 61);
+}
+
+.fa-user-circle {
+    font-size: 25px;
+    color:whitesmoke;
+}
+
+.profile-dropdown {
+    list-style: none;
+    font-family: sans-serif;
+    margin-right: 10px;
+    /* display: inline-table; */
+}
+
+.profile-dropdown li {
+    margin-bottom: 10px;
+}
+
+.logout {
+    background-color: black;
+    color: white;
+}
+
+.cart-button {
+    margin-right: 10px;
+    width: 50px;
+    height: 40px;
+    background-color: rgb(235, 235, 235);
+}
+
+.fa-shopping-cart {
+    font-size: 18px;
+}
