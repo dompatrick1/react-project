@@ -46,8 +46,30 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   });
+
+  const cartMapping = {
+    through: 'Cart',
+    otherKey: 'productId',
+    foreignKey: 'userId'
+  }
+
+  const reviewMapping = {
+    through: 'Review',
+    otherKey: 'productId',
+    foreignKey: 'userId'
+  }
+
+  const ratingMapping = {
+    through: 'Rating',
+    otherKey: 'productId',
+    foreignKey: 'userId'
+  }
+
   User.associate = function(models) {
     // associations can be defined here
+    User.belongsToMany(models.Product, cartMapping);
+    User.belongsToMany(models.Product, reviewMapping);
+    User.belongsToMany(models.Product, ratingMapping);
   };
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
     const { id, username, email } = this; // context will be the User instance

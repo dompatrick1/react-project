@@ -3,6 +3,8 @@ import { useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import { getProducts } from '../../store/products'
 import fish from '../../images/fish.jpg'
+import CreateReviewForm from '../reviews/CreateReview'
+import ProductReviews from '../reviews/ProductReviews'
 import './product.css'
 
 function Product () {
@@ -41,6 +43,10 @@ function Product () {
                     <p>{`$${product.price}`}</p>
                 </div>
             : null}
+            <div>
+                <CreateReviewForm />
+                <ProductReviews />
+            </div>
         </div>
         </>
     )
