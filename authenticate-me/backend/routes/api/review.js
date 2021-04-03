@@ -6,8 +6,8 @@ const { Review, User } = require('../../db/models')
 const router = express.Router()
 
 router.get("/", asyncHandler(async(req, res) => {
-    // const {review, userId, productId} = req.body
-    const reviews = await Review.findAll();
+    const reviews = await Review.findAll({attributes: ['id', 'review', 'userId', 'productId', 'createdAt', 'updatedAt']});
+    // console.log('api/review.js-----', reviews[0].review)
     res.json(reviews)
 }))
 

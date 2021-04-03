@@ -4,7 +4,7 @@
     display: grid;
     background-color:rgb(236, 236, 236);
     grid-template-columns: 100%;
-    grid-template-rows: 31em 8em 20em 8em 20em 8em 20em 8em 20em 8em;
+    grid-template-rows: 31em 8em 20em 8em 20em 8em 20em 8em 20em 3em;
     grid-template-areas:
     "categories"
     "h1"
@@ -18,6 +18,10 @@
     "footer";
 }
 
+.featured-container a {
+    text-decoration: inherit;
+    color: inherit;
+}
 
 .header {
     grid-area: categories;
@@ -71,10 +75,12 @@
     width: auto;
     border-radius: 100%;
     padding-top: .7rem;
+    transition: all .05s ease-in-out;
+
 }
 
 .categories div img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 
@@ -115,7 +121,7 @@
 .fishing div img {
     height: 15rem;
     width: auto;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .fishing div:hover {
@@ -155,7 +161,7 @@
 .hunting div img {
     height: 15rem;
     width: auto;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .hunting div:hover {
@@ -194,7 +200,7 @@
 .hiking div img {
     height: 15rem;
     width: auto;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .hiking div:hover {
@@ -218,6 +224,8 @@
     display: block;
     font-family: sans-serif;
     padding-top: .2em;
+    text-decoration: inherit;
+    color: inherit;
 }
 
 .camping-title {
@@ -232,9 +240,17 @@
 .camping div img {
     height: 15rem;
     width: auto;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .camping div:hover {
     transform: scale(1.01);
+}
+
+.footer {
+    grid-area: footer;
+    /* padding-top: 40px; */
+    background-color: rgb(150, 5, 61);
+    text-align: center;
+    color:rgb(255, 174, 142);
 }

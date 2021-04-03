@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getProducts } from '../../store/products'
 import fish from '../../images/fish.jpg'
 import CreateReviewForm from '../reviews/createReview'
-import ProductReviews from '../reviews/productReviews'
+// import ProductReviews from '../reviews/productReviews'
 import './product.css'
 
 
@@ -47,9 +47,9 @@ function Product () {
             <div>
                 <CreateReviewForm />
             </div>
-            <div>
+            {/* <div>
                 <ProductReviews />
-            </div>
+            </div> */}
         </div>
         </>
     )

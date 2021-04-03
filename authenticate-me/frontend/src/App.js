@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ProductsHome from './components/home'
 import Product from './components/product'
+import CreateReviewForm from './components/reviews/createReview'
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ function App() {
           <Route exact path="/:productId">
             <Product />
           </Route>
+          {/* <Route>
+            <CreateReviewForm exact path="/:productId/reviews" />
+          </Route> */}
         </Switch>
       )}
     </>

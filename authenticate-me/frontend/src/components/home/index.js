@@ -5,7 +5,6 @@ import './home.css'
 
 function ProductsHome () {
     const products = useSelector(state => state.products);
-    console.log('products', products)
     const dispatch = useDispatch();
 
     const productsArray = Object.values(products)
@@ -57,7 +56,7 @@ function ProductsHome () {
                             <a href={`/${fishing[1].id}`}>
                                 <img src={fishing[1].image}alt={fishing[1].image}/>
                                 <label>{fishing[1].name}</label>
-                                <label className="cost">{`$ ${fishing[1].price}`}</label>
+                                <label className="cost">{`$${fishing[1].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -66,7 +65,7 @@ function ProductsHome () {
                             <a href={`/${fishing[2].id}`}>
                                 <img src={fishing[2].image}alt={fishing[2].image}/>
                                 <label>{fishing[2].name}</label>
-                                <label className="cost">{`$ ${fishing[2].price}`}</label>
+                                <label className="cost">{`$${fishing[2].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -75,7 +74,7 @@ function ProductsHome () {
                             <a href={`/${fishing[3].id}`}>
                                 <img src={fishing[3].image}alt={fishing[3].image}/>
                                 <label>{fishing[3].name}</label>
-                                <label className="cost">{`$ ${fishing[3].price}`}</label>
+                                <label className="cost">{`$${fishing[3].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -84,7 +83,7 @@ function ProductsHome () {
                             <a href={`/${fishing[4].id}`}>
                                 <img src={fishing[4].image}alt={fishing[4].image}/>
                                 <label>{fishing[4].name}</label>
-                                <label className="cost">{`$ ${fishing[4].price}`}</label>
+                                <label className="cost">{`$${fishing[4].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -96,7 +95,7 @@ function ProductsHome () {
                             <a href={`/${hunting[1].id}`}>
                                 <img src={hunting[1].image}alt={hunting[1].image}/>
                                 <label>{hunting[1].name}</label>
-                                <label className="cost">{`$ ${hunting[1].price}`}</label>
+                                <label className="cost">{`$${hunting[1].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -105,7 +104,7 @@ function ProductsHome () {
                             <a href={`/${hunting[2].id}`}>
                                 <img src={hunting[2].image}alt={hunting[2].image}/>
                                 <label>{hunting[2].name}</label>
-                                <label className="cost">{`$ ${hunting[2].price}`}</label>
+                                <label className="cost">{`$${hunting[2].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -114,7 +113,7 @@ function ProductsHome () {
                             <a href={`/${hunting[3].id}`}>
                                 <img src={hunting[3].image}alt={hunting[3].image}/>
                                 <label>{hunting[3].name}</label>
-                                <label className="cost">{`$ ${hunting[3].price}`}</label>
+                                <label className="cost">{`$${hunting[3].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -123,7 +122,7 @@ function ProductsHome () {
                             <a href={`/${hunting[4].id}`}>
                                 <img src={hunting[4].image}alt={hunting[4].image}/>
                                 <label>{hunting[4].name}</label>
-                                <label className="cost">{`$ ${hunting[4].price}`}</label>
+                                <label className="cost">{`$${hunting[4].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -135,7 +134,7 @@ function ProductsHome () {
                             <a href={`/${hiking[1].id}`}>
                                 <img src={hiking[1].image}alt={hiking[1].image}/>
                                 <label>{hiking[1].name}</label>
-                                <label className="cost">{`$ ${hiking[1].price}`}</label>
+                                <label className="cost">{`$${hiking[1].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -144,7 +143,7 @@ function ProductsHome () {
                             <a href={`/${hiking[2].id}`}>
                                 <img src={hiking[2].image}alt={hiking[2].image}/>
                                 <label>{hiking[2].name}</label>
-                                <label className="cost">{`$ ${hiking[2].price}`}</label>
+                                <label className="cost">{`$${hiking[2].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -153,7 +152,7 @@ function ProductsHome () {
                             <a href={`/${hiking[3].id}`}>
                                 <img src={hiking[3].image}alt={hiking[3].image}/>
                                 <label>{hiking[3].name}</label>
-                                <label className="cost">{`$ ${hiking[3].price}`}</label>
+                                <label className="cost">{`$${hiking[3].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -162,7 +161,7 @@ function ProductsHome () {
                             <a href={`/${hiking[4].id}`}>
                                 <img src={hiking[4].image}alt={hiking[4].image}/>
                                 <label>{hiking[4].name}</label>
-                                <label className="cost">{`$ ${hiking[4].price}`}</label>
+                                <label className="cost">{`$${hiking[4].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -174,7 +173,7 @@ function ProductsHome () {
                             <a href={`/${camping[1].id}`}>
                                 <img src={camping[1].image}alt={camping[1].image}/>
                                 <label>{camping[1].name}</label>
-                                <label className="cost">{`$ ${camping[1].price}`}</label>
+                                <label className="cost">{`$${camping[1].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -183,7 +182,7 @@ function ProductsHome () {
                             <a href={`/${camping[2].id}`}>
                                 <img src={camping[2].image}alt={camping[2].image}/>
                                 <label>{camping[2].name}</label>
-                                <label className="cost">{`$ ${camping[2].price}`}</label>
+                                <label className="cost">{`$${camping[2].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -192,7 +191,7 @@ function ProductsHome () {
                             <a href={`/${camping[3].id}`}>
                                 <img src={camping[3].image}alt={camping[3].image}/>
                                 <label>{camping[3].name}</label>
-                                <label className="cost">{`$ ${camping[3].price}`}</label>
+                                <label className="cost">{`$${camping[3].price}`}</label>
                             </a>
                         </div>
                     : null}
@@ -201,11 +200,14 @@ function ProductsHome () {
                             <a href={`/${camping[4].id}`}>
                                 <img src={camping[4].image}alt={camping[4].image}/>
                                 <label>{camping[4].name}</label>
-                                <label className="cost">{`$ ${camping[4].price}`}</label>
+                                <label className="cost">{`$${camping[4].price}`}</label>
                             </a>
                         </div>
                     : null}
                 </td>
+                <div className="footer">
+                    <p>Created By Dominic Patrick</p>
+                </div>
         </div>
         </>
     )

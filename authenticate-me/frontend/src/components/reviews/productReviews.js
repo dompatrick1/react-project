@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getReviews } from '../../store/reviews';
+import { getReviews, deleteReview } from '../../store/reviews';
 import './review.css'
 
-    function ProductReviews () {
-        // const {reviewId} = useParams()
-        // const {userId} = useParams()
-        const { productId } = useParams();
-        const reviews = useSelector(state => state.reviews)
-        const dispatch = useDispatch();
+    function ProductReviews ({reviews}) {
 
+        const { productId } = useParams();
+        const sessionUser = useSelector(state => state.session.user);
+        const dispatch = useDispatch();
         const reviewsArray = Object.values(reviews)
 
+        useEffect(() => {
+            dispatch(getReviews())
+        }, [dispatch])
 
         let reviewList = []
 
@@ -21,21 +22,24 @@ import './review.css'
                 reviewList.push(review)
             }
         })
-        console.log('------',reviewList)
-
-        useEffect(() => {
-            dispatch(getReviews())
-        }, [dispatch])
-
+        // console.log('------',review)
+        // console.log('----------??', reviewsArray)
 
         return (
             <>
-            <div>
-                {reviewList.map(review => {
-                    return <p className="test">{review.review}</p>
-                })}
+                <div>
+                    {reviewList.slice(0).reverse().map(review => {
+                        return (
+                        <div>
+                            <p key={review} className="test">{review.review}</p>
+                            {review.userId === sessionUser.id ?
+                                <button onClick={() => deleteReview(review.id)}>Delete</button>
+                            : null}
+                        </div>
+                        )
+                    })}
 
-            </div>
+                </div>
             </>
         )
 

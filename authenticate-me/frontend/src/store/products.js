@@ -34,13 +34,14 @@ const initialState = {}
 
 const productReducer = (products = initialState, action) => {
     switch (action.type) {
-      case SET_PRODUCTS:
+      case SET_PRODUCTS: {
         const productsPayload = action.payload
         const newProducts = {};
         for (const product of productsPayload) {
           newProducts[product.id] = product;
         }
         return newProducts
+      }
       case ADD_PRODUCT:
         return
       default:

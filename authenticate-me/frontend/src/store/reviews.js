@@ -5,20 +5,27 @@ const REMOVE_REVIEW = "reviews/REMOVE_REVIEW"
 const UPDATE_REVIEW = "reviews/UPDATE_REVIEW"
 const ADD_REVIEW = "reviews/ADD_REVIEW"
 
-const setReviews = (reviews) => ({
-    type: SET_REVIEWS,
-    reviews,
-});
+export const setReviews = (reviews) => {
+    return {
+        type: SET_REVIEWS,
+        payload: reviews,
+    }
 
-const update = (review) => ({
-    type: UPDATE_REVIEW,
-    payload: review,
-  });
+};
 
-  const addReview = (review) => ({
-    type: ADD_REVIEW,
-    review,
-  });
+const update = (review) => {
+    return {
+        type: UPDATE_REVIEW,
+        payload: review,
+    }
+  };
+
+  const addReview = (review) => {
+    return {
+        type: ADD_REVIEW,
+        payload: review,
+    }
+  };
 
   const remove = (reviewId, productId) => ({
     type: REMOVE_REVIEW,
@@ -26,18 +33,6 @@ const update = (review) => ({
     productId,
   });
 
-  export const getReviews = () => async dispatch => {
-      const response = await csrfFetch(`/api/reviews`);
-
-    //   if (!response.ok) {
-    //       throw response
-    //   }
-
-      if (response.ok) {
-          const reviews = await response.json();
-          dispatch(setReviews(reviews));
-      }
-  }
 
   export const createReview = ({review, userId, productId}) => async dispatch => {
       const response = await csrfFetch(`/api/reviews/`, {
@@ -79,12 +74,22 @@ const update = (review) => ({
       }
   };
 
+  export const getReviews = () => async dispatch => {
+    const response = await csrfFetch(`/api/reviews`);
+
+    if (!response.ok) {
+        throw response
+    }
+    const reviews = await response.json();
+    dispatch(setReviews(reviews));
+}
+
   const initialState = {};
 
   const reviewsReducer = (reviews = initialState, action) => {
       switch (action.type) {
           case SET_REVIEWS: {
-              const reviewsPayload = action.reviews
+              const reviewsPayload = action.payload
               const newReviews = {};
               for (const review of reviewsPayload) {
                 newReviews[review.id] = review;
@@ -97,7 +102,7 @@ const update = (review) => ({
               return newState;
           }
           case ADD_REVIEW:
-              return {...reviews, [action.review.id]: action.review}
+              return {...reviews, [action.payload.id]: action.payload}
           case UPDATE_REVIEW: {
               return {
                   ...reviews,
