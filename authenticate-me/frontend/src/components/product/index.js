@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getProducts } from '../../store/products'
 import fish from '../../images/fish.jpg'
 import CreateReviewForm from '../reviews/createReview'
+import CreateCartForm from '../cart/addToCart'
 // import ProductReviews from '../reviews/productReviews'
 import './product.css'
 
@@ -44,6 +45,9 @@ function Product () {
                     <p>{`$${product.price}`}</p>
                 </div>
             : null}
+            <div>
+                <CreateCartForm />
+            </div>
             <div>
                 <CreateReviewForm />
             </div>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createReview, deleteReview } from '../../store/reviews';
-import { useHistory } from 'react-router-dom';
 import ProductReviews from '../reviews/productReviews'
 
 function CreateReviewForm () {
