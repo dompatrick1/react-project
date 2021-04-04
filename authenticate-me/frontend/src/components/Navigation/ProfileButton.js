@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import CartDisplay from '../cart/cartDisplay'
 import './Navigation.css';
 
 function ProfileButton({ user }) {
+  const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
@@ -31,9 +33,11 @@ function ProfileButton({ user }) {
 
   return (
     <>
-    <button className="cart-button">
-      <i className="fa fa-shopping-cart"/>
-    </button>
+    <a href={`/${sessionUser.id}/cart`}>
+      <button className="cart-button">
+          <i className="fa fa-shopping-cart"/>
+      </button>
+    </a>
     <div className="menu">
       <button className="profile-button" onClick={openMenu}>
         <i className="fas fa-user-circle" />

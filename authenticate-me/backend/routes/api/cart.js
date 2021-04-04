@@ -14,8 +14,13 @@ router.post("/", asyncHandler(async(req, res) => {
 
     const {userId, productId} = req.body
 
-    const userItem = await Cart.create({userId, productId})
-    return res.json({userItem})
+    let userItem = await Cart.findOne({ where: {userId, productId}})
+    if (userItem) {
+        return res.json({submitted: false})
+    }
+
+    userItem = await Cart.create({userId, productId})
+    return res.json({submitted: true, userItem})
 }))
 
 router.delete('/:id', asyncHandler(async(req, res) => {

@@ -22,8 +22,6 @@ import './review.css'
             dispatch(getReviews())
         },[dispatch])
 
-        // console.log('-------------%%', usersList)
-
 
         let reviewList = []
 
@@ -45,9 +43,13 @@ import './review.css'
                     {reviewList.slice(0).reverse().map(review => {
                         return (
                         <div>
-                            <ReturnUsers review={review}/>
-                            <p key={review} className="test">{review.review}</p>
-                                {review.userId === sessionUser.id ?
+                            {review ?
+                                <div>
+                                    <ReturnUsers review={review}/>
+                                    <p key={review} className="test">{review.review}</p>
+                                </div>
+                            : null}
+                                {sessionUser && review.userId === sessionUser.id ?
                                     <button onClick={(e) => handleDelete(e, review)}>Delete</button>
                                 : null}
                         </div>

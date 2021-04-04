@@ -19,16 +19,21 @@ function CreateCartForm () {
                 productId
             };
             const userCart = await dispatch(createCart(payload));
+            setSubmitButton("true")
         }
 
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <button type="submit" >Add To Cart</button>
+                <button type="submit" hidden={submitButton} >Add To Cart</button>
             </form>
         </>
     )
 
+} else {
+    return (
+        <p>Login to add items to your cart!</p>
+    )
 }
 }
 

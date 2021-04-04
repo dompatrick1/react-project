@@ -13,7 +13,7 @@ function CreateReviewForm () {
     const [submitButton, setSubmitButton] = useState('')
     const updateReview = (e) => setReview(e.target.value)
     const reviews = useSelector(state => state.reviews)
-    console.log('@@@@@@@', sessionUser.username)
+    // console.log('@@@@@@@', sessionUser.username)
 
     const reviewsArray = Object.values(reviews)
     let reviewUserId = []

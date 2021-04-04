@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import ProductsHome from './components/home'
 import Product from './components/product'
 import CreateReviewForm from './components/reviews/createReview'
+import CartDisplay from "./components/cart/cartDisplay";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route exact path="/:productId">
             <Product />
+          </Route>
+          <Route exact path="/:userId/cart">
+            <CartDisplay />
           </Route>
         </Switch>
       )}
