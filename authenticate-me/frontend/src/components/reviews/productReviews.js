@@ -1,19 +1,29 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+// import {User} from {}
+import ReturnUsers from '../users/index'
 import { getReviews, deleteReview } from '../../store/reviews';
+import {getUsers} from '../../store/users'
 import './review.css'
 
-    function ProductReviews ({reviews}) {
+    function ProductReviews () {
 
         const { productId } = useParams();
         const sessionUser = useSelector(state => state.session.user);
+        const usersList = useSelector(state => state.users)
+        const reviews = useSelector(state => state.reviews)
         const dispatch = useDispatch();
         const reviewsArray = Object.values(reviews)
+        const [deleteButton, setDeleteButton] = useState('false')
+
 
         useEffect(() => {
             dispatch(getReviews())
-        }, [dispatch])
+        },[dispatch])
+
+        // console.log('-------------%%', usersList)
+
 
         let reviewList = []
 
@@ -22,8 +32,12 @@ import './review.css'
                 reviewList.push(review)
             }
         })
-        // console.log('------',review)
-        // console.log('----------??', reviewsArray)
+
+
+        const handleDelete = async (e, review) => {
+            e.preventDefault()
+            dispatch(deleteReview(review.id))
+        }
 
         return (
             <>
@@ -31,10 +45,11 @@ import './review.css'
                     {reviewList.slice(0).reverse().map(review => {
                         return (
                         <div>
+                            <ReturnUsers review={review}/>
                             <p key={review} className="test">{review.review}</p>
-                            {review.userId === sessionUser.id ?
-                                <button onClick={() => deleteReview(review.id)}>Delete</button>
-                            : null}
+                                {review.userId === sessionUser.id ?
+                                    <button onClick={(e) => handleDelete(e, review)}>Delete</button>
+                                : null}
                         </div>
                         )
                     })}

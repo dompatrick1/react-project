@@ -44,19 +44,8 @@ router.put('/:id', asyncHandler(async(req, res) => {
 }))
 
 router.delete('/:id', asyncHandler(async(req, res) => {
-    if (!res.locals.authenticated) {
-        return res.status(403).end()
-    }
 
-    const userId = res.locals.user.id
-    const reviewId = req.params.reviewId
-
-    let userReview = await Review.findOne({ where: {userId, productId: req.params.productId}})
-
-    if (userReview.userId !== userId) {
-        return res.status(403).end()
-    }
-    await userReview.destroy()
+    await Review.destroy({where: {id: req.params.id}})
     res.status(204).end()
 }));
 

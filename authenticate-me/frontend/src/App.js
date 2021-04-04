@@ -33,9 +33,6 @@ function App() {
           <Route exact path="/:productId">
             <Product />
           </Route>
-          {/* <Route>
-            <CreateReviewForm exact path="/:productId/reviews" />
-          </Route> */}
         </Switch>
       )}
     </>

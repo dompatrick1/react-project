@@ -27,10 +27,9 @@ const update = (review) => {
     }
   };
 
-  const remove = (reviewId, productId) => ({
+  const remove = (reviewId) => ({
     type: REMOVE_REVIEW,
-    reviewId,
-    productId,
+    payload: reviewId,
   });
 
 
@@ -70,7 +69,7 @@ const update = (review) => {
       });
       if (response.ok) {
           const review = await response.json();
-          dispatch(remove(review.id, review.productId))
+          dispatch(remove(review.id))
       }
   };
 
@@ -98,7 +97,7 @@ const update = (review) => {
           }
           case REMOVE_REVIEW: {
               const newState = {...reviews};
-              delete newState[action.reviewId];
+              delete newState[action.payload];
               return newState;
           }
           case ADD_REVIEW:
