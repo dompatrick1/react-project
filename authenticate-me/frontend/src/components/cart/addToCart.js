@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {createCart, deleteCart} from '../../store/carts'
+import '../product/product.css'
 
 function CreateCartForm () {
     const {productId} = useParams()
@@ -24,7 +25,7 @@ function CreateCartForm () {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className="add-to-cart-form" onSubmit={handleSubmit}>
                 <button type="submit" hidden={submitButton} >Add To Cart</button>
             </form>
         </>

@@ -27,12 +27,14 @@ function LoginFormPage() {
     }
 
     return (
-      <>
-        <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-          </ul>
-          <div className="formContainer">
+      <div className="formContainer">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="err">
+            <ul >
+              {errors.map((error, idx) => <li  key={idx}>{error}</li>)}
+            </ul>
+          </div>
+          <div className="login-fields">
             <label>
               Username or Email
               <input
@@ -57,7 +59,7 @@ function LoginFormPage() {
         <div>
           <DemoForm />
         </div>
-      </>
+      </div>
     );
   }
 

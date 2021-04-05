@@ -1,15 +1,56 @@
-
-
 .formContainer {
-    height: 175px;
+    background-image: url('./image/4k-uhd-background-river-forest-aerial-view-height-treetops-a.jpg');
+    background-size: cover;
+    height: 100%;
+}
+
+.login-fields {
+    /* height: 1px; */
     width: 200px;
-    display: inline-block;
-    margin-top: 150px;
-    /* background-image: url('./image/ripped_paper_07_550.png');
-    background-size: cover; */
-    /* padding: 20px; */
+    display:inline-block;
+    margin-top: 50px;
+    text-align: center;
+    margin-left:525px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+.login-fields button {
+    margin-top: 5px;
+}
+
+.login-fields input {
+    margin-top: 3px;
+    margin-bottom: 5px;
 }
 
 
-.errors {
+.err {
+    margin-left:400px;
+    margin-right: 450px;
+    /* width: 400px; */
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    /* background-color: black; */
+    text-align: center;
+    /* margin-bottom: 150px; */
+}
+
+.err li {
+    list-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: black;
+}
+
+.guestContainer {
+    margin-left: 575px;
+}
+
+.guestContainer button {
+    background-color: black;
+    color:white;
 }

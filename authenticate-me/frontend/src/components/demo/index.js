@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-// import './LoginForm.css';
+import '../LoginFormPage/LoginForm.css';
 
 function DemoForm() {
     const dispatch = useDispatch();
@@ -31,7 +31,7 @@ function DemoForm() {
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-            <div className="formContainer">
+            <div className="guestContainer">
                 <label>
                 <input
                     type="hidden"

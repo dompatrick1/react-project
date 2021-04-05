@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createReview, deleteReview } from '../../store/reviews';
 import ProductReviews from '../reviews/productReviews'
+import '../product/product.css'
 
 function CreateReviewForm () {
     const {productId} = useParams()
@@ -31,7 +32,7 @@ function CreateReviewForm () {
     if (sessionUser && reviewUserId.includes(sessionUser.id)) {
         return (
             <>
-                <p>You have already reviewed this product</p>
+                <p className="already-reviewed">You have already reviewed this product</p>
                 <div>
                     <ProductReviews reviews={reviews}/>
                 </div>
@@ -62,7 +63,7 @@ function CreateReviewForm () {
 
         return (
             <>
-                <form>
+                <form className="review-form">
                     <input
                         type="text"
                         placeholders="Leave a review"
@@ -73,10 +74,10 @@ function CreateReviewForm () {
                     <button type='submit' hidden={submitButton} onClick={handleSubmit}>Submit</button>
                 </form>
                 {Object.values(newReview)[0] ?
-                    <div>
+                    <div className="user-review">
                         <h1>{sessionUser.username}</h1>
-                        <p key={review} className="test">{Object.values(newReview)[0].userReview.review}</p>
-                        <button onClick={handleDelete}>Delete</button>
+                        <p key={review} >{Object.values(newReview)[0].userReview.review}</p>
+                        <button onClick={handleDelete}>X</button>
                     </div>
                 : null}
                 <div>
@@ -87,7 +88,7 @@ function CreateReviewForm () {
     } else {
         return (
             <>
-                <p>Login to leave a review</p>
+                <p className="login-to-review">Login to leave a review</p>
                 <div>
                     <ProductReviews />
                 </div>

@@ -250,6 +250,7 @@
 .footer {
     grid-area: footer;
     /* padding-top: 40px; */
+    height: 3em;
     background-color: rgb(150, 5, 61);
     text-align: center;
     color:rgb(255, 174, 142);

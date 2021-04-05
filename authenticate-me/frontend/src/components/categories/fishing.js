@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState} from 'react'
 import { getProducts } from '../../store/products'
-// import images from './images/fishing/'
+import './categories.css'
 
 function FishingCategory () {
     const products = useSelector(state => state.products);
@@ -25,26 +25,24 @@ function FishingCategory () {
 
     return (
         <>
-        <p className="fishing-category">Featured Fishing Products</p>
-        <img></img>
-            {fishing.length ?
-                fishing.map(product => (
-                    <div>
-                        <td className="fishing-page">
-                            <div>
-                                {product ?
-                                    <a href={`/${product.id}`}>
-                                        <img src={require(`${product.image}`).default}alt={''}/>
-                                        <label>{product.name}</label>
-                                        <label className="cost">{`$${product.price}`}</label>
-                                    </a>
-                                : null}
-                            </div>
-                        </td>
-                    </div>
-                ))
-            : null}
-
+        <div className="category-container">
+                {fishing.length ?
+                    fishing.map(product => (
+                        <div className="individual-product">
+                            {product ?
+                                <a href={`/${product.id}`}>
+                                    <img src={require(`${product.image}`).default}alt={''}/>
+                                    <label>{product.name}</label>
+                                    <label className="cost">{`$${product.price}`}</label>
+                                </a>
+                            : null}
+                        </div>
+                    ))
+                : null}
+        </div>
+        <div className="footer-categories">
+            <p>Created By Dominic Patrick</p>
+        </div>
         </>
     )
 }

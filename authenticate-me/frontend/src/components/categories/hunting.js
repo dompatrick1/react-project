@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState} from 'react'
 import { getProducts } from '../../store/products'
+import './categories.css'
 // import images from './images/hunting/'
 
 function HuntingCategory () {
@@ -25,25 +26,24 @@ function HuntingCategory () {
 
     return (
         <>
-        <p className="hunting-category">Featured hunting Products</p>
+        <div className="category-container">
             {hunting.length ?
                 hunting.map(product => (
-                    <div>
-                        <td className="hunting-page">
-                            <div>
-                                {product ?
-                                    <a href={`/${product.id}`}>
-                                        <img src={require(`${product.image}`).default}alt={''}/>
-                                        <label>{product.name}</label>
-                                        <label className="cost">{`$${product.price}`}</label>
-                                    </a>
-                                : null}
-                            </div>
-                        </td>
+                    <div className="individual-product">
+                        {product ?
+                            <a href={`/${product.id}`}>
+                                <img src={require(`${product.image}`).default}alt={''}/>
+                                <label>{product.name}</label>
+                                <label className="cost">{`$${product.price}`}</label>
+                            </a>
+                        : null}
                     </div>
                 ))
             : null}
-
+        </div>
+        <div className="footer-categories">
+            <p>Created By Dominic Patrick</p>
+        </div>
         </>
     )
 }

@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState} from 'react'
 import { getProducts } from '../../store/products'
+import './categories.css'
 // import images from './images/hiking/'
 
 function HikingCategory () {
@@ -25,7 +26,7 @@ function HikingCategory () {
 
     return (
         <>
-        <p className="hiking-category">Featured hiking Products</p>
+        <div className="hiking-category">Featured hiking Products</div>
             {hiking.length ?
                 hiking.map(product => (
                     <div>

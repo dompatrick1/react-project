@@ -35,6 +35,7 @@ import './review.css'
         const handleDelete = async (e, review) => {
             e.preventDefault()
             dispatch(deleteReview(review.id))
+            window.location.reload(false);
         }
 
         return (
@@ -42,7 +43,7 @@ import './review.css'
                 <div>
                     {reviewList.slice(0).reverse().map(review => {
                         return (
-                        <div>
+                        <div className="user-review">
                             {review ?
                                 <div>
                                     <ReturnUsers review={review}/>
@@ -50,7 +51,7 @@ import './review.css'
                                 </div>
                             : null}
                                 {sessionUser && review.userId === sessionUser.id ?
-                                    <button onClick={(e) => handleDelete(e, review)}>Delete</button>
+                                    <button onClick={(e) => handleDelete(e, review)}>X</button>
                                 : null}
                         </div>
                         )
