@@ -8,11 +8,11 @@ function CreateCartForm () {
     const {productId} = useParams()
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
-    const [submitButton, setSubmitButton] = useState('')
+    // const [submitButton, setSubmitButton] = useState('')
 
     if (sessionUser) {
         let userId = sessionUser.id
-        const handleSubmit = async (e) => {
+        const onSubmit = async (e) => {
             e.preventDefault();
 
             const payload = {
@@ -20,13 +20,13 @@ function CreateCartForm () {
                 productId
             };
             const userCart = await dispatch(createCart(payload));
-            setSubmitButton("true")
+            // setSubmitButton("true")
         }
 
     return (
         <>
-            <form className="add-to-cart-form" onSubmit={handleSubmit}>
-                <button type="submit" hidden={submitButton} >Add To Cart</button>
+            <form className="add-to-cart-form" onSubmit={onSubmit}>
+                <button type="submit" >Add To Cart</button>
             </form>
         </>
     )

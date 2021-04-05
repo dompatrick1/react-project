@@ -109,12 +109,15 @@ function Product () {
                     <p>{`$${product.price}`}</p>
                 </div>
             : null}
-            <div className="add-to-cart">
+            {/* <div className="add-to-cart">
                 <CreateCartForm />
-            </div>
+            </div> */}
             <div className="add-review">
                 <CreateReviewForm />
             </div>
+            <td className="add-to-cart">
+                <CreateCartForm />
+            </td>
         </div>
         <div className="footer-categories">
             <p>Created By Dominic Patrick</p>

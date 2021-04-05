@@ -82,8 +82,9 @@
 
 .add-to-cart {
     grid-area: price;
-    /* position:relative; */
-    display: inline-block;
+    /* z-index: 100; */
+    position:relative;
+    float: inline-end;
     margin-top: 80px;
 }
 
@@ -143,5 +144,5 @@
     border-radius: 20px;
     width: 100px;
     height: 40px;
-    font-weight: bold;
+    outline:none;
 }

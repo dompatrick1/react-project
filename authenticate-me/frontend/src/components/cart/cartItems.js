@@ -51,9 +51,9 @@ function CartItems ({carts}) {
     //     <>
             return final.map(product => {
                 return (
-                    <td className="cart-container">
+                    <div className="cart-container">
                         {product ?
-                            <div>
+                            <div className="individual-cart">
                                 <a href={`/${product.id}`}>
                                     <img src={require(`${product.image}`).default} alt={''}/>
                                     <p>{product.name}</p>
@@ -62,7 +62,7 @@ function CartItems ({carts}) {
                                 <button onClick={(e) => handleDelete(e, product)}>X</button>
                             </div>
                         : null}
-                    </td>
+                    </div>
                 )
             })
     //     </>
