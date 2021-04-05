@@ -9,6 +9,10 @@ import ProductsHome from './components/home'
 import Product from './components/product'
 import CreateReviewForm from './components/reviews/createReview'
 import CartDisplay from "./components/cart/cartDisplay";
+import FishingCategory from "./components/categories/fishing";
+import HuntingCategory from "./components/categories/hunting";
+import CampingCategory from "./components/categories/camping";
+import HikingCategory from "./components/categories/hiking";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,8 +38,20 @@ function App() {
           <Route exact path="/:productId">
             <Product />
           </Route>
-          <Route exact path="/:userId/cart">
+          <Route exact path="/cart/:userId">
             <CartDisplay />
+          </Route>
+          <Route exact path="/category/fishing">
+            <FishingCategory />
+          </Route>
+          <Route exact path="/category/hunting">
+            <HuntingCategory />
+          </Route>
+          <Route exact path="/category/camping">
+            <CampingCategory />
+          </Route>
+          <Route exact path="/category/hiking">
+            <HikingCategory />
           </Route>
         </Switch>
       )}

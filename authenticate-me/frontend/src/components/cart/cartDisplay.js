@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {getProducts} from '../../store/products'
+import {getCarts, deleteCart} from '../../store/carts'
 import CartItems from './cartItems'
 
 function CartDisplay () {
-    const products = useSelector(state => state.products);
+    const cartList = useSelector(state => state.carts)
     const dispatch = useDispatch();
 
-    const productsArray = Object.values(products)
+
+    let cartListArray = Object.values(cartList)
     useEffect(() => {
-        dispatch(getProducts())
+        dispatch(getCarts())
     }, [dispatch])
 
     return (
         <>
-            <CartItems products={productsArray}/>
+            <CartItems carts={cartListArray}/>
         </>
     )
 }

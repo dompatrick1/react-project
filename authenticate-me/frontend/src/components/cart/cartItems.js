@@ -1,77 +1,72 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {getCarts, deleteCart} from '../../store/carts'
+import {deleteCart} from '../../store/carts'
+import {getProducts} from '../../store/products'
+import './cart.css'
 // import '../../../public'
 
 
-function CartItems ({products}) {
+function CartItems ({carts}) {
     const sessionUser = useSelector(state => state.session.user);
-    const cartList = useSelector(state => state.carts)
+    const products = useSelector(state => state.products);
     const dispatch = useDispatch();
     const [count, setCount] = useState(1);
     // const [items, setItems] = useState([])
 
 
-    let cartListArray = Object.values(cartList)
+    const productsArray = Object.values(products)
+    useEffect(() => {
+        dispatch(getProducts())
+    }, [dispatch])
 
-    let productsList = [];
+    let cartsList = [];
 
-    products.forEach(product => {
-            productsList.push(product)
+    carts.forEach(cart => {
+            cartsList.push(cart)
 
         })
 
         let final = []
-
-        productsList.forEach(product => {
-            cartListArray.forEach(item => {
-                if (item.productId === product.id && item.userId === sessionUser.id) {
-                    final.push(product)
+        let total = 0
+        cartsList.forEach(cart => {
+            productsArray.forEach(item => {
+                if (cart.productId === item.id && cart.userId === sessionUser.id) {
+                    final.push(item)
+                    total += item.price
                 }
             })
         })
+        const handleDelete = async (e, product) => {
+            // e.preventDefault()
+            cartsList.forEach(cart => {
+                if (cart.productId === product.id) {
+                    dispatch(deleteCart(cart.id))
+                }
+            })
+            window.location.reload(false);
+        }
 
-
-    useEffect(() => {
-        dispatch(getCarts())
-    }, [dispatch])
-
-    return (
-        <div className="cart-container">
-            {final.map(product => {
-                console.log(product)
+    // return (
+    //     <>
+            return final.map(product => {
                 return (
-                    <div>
+                    <td className="cart-container">
                         {product ?
-                            <a>
-                                <img src={product.image} alt={product.image}/>
-                                <p>{product.name}</p>
-                                <label className="cost">{`$${product.price}`}</label>
-                            </a>
+                            <div>
+                                <a href={`/${product.id}`}>
+                                    <img src={require(`${product.image}`).default} alt={''}/>
+                                    <p>{product.name}</p>
+                                    <label className="cost">{`$${product.price}`}</label>
+                                </a>
+                                <button onClick={(e) => handleDelete(e, product)}>X</button>
+                            </div>
                         : null}
-                        <input
-                            type="number"
-                            value={count}
-                            onChange={(e) => setCount(e.target.value)}
-                            />
-                            <button
-                            className="cart-item-button"
-                            onClick={() => setCount(count + 1)}
-                            >
-                            +
-                            </button>
-                            <button
-                            className="cart-item-button"
-                            onClick={() => setCount(count - 1)}
-                            >
-                            -
-                            </button>
-                    </div>
+                    </td>
                 )
-            })}
-        </div>
-    )
+            })
+    //     </>
+    // )
 
 }
 

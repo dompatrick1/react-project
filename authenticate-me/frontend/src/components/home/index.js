@@ -32,20 +32,28 @@ function ProductsHome () {
                 <p className="subheader">Explore These Collections</p>
                 <td className="categories">
                     <div>
-                        <img src={'./images/header/fishing.jpg'}alt={'./images/header/fishing.jpg'}/>
-                        <label>Fishing</label>
+                        <a href={`/category/fishing`}>
+                            <img src={'./images/header/fishing.jpg'}alt={'./images/header/fishing.jpg'}/>
+                            <label>Fishing</label>
+                        </a>
                     </div>
                     <div>
-                        <img src={'./images/header/Elk1.jpg'}alt={'./images/header/Elk1.jpg'}/>
-                        <label>Hunting</label>
+                        <a href={"/category/hunting"}>
+                            <img src={'./images/header/Elk1.jpg'}alt={'./images/header/Elk1.jpg'}/>
+                            <label>Hunting</label>
+                        </a>
                     </div>
                     <div>
-                        <img src={'./images/header/hiking-header.jpg'}alt={'./images/header/hiking-header.jpg'}/>
-                        <label>Hiking</label>
+                        <a href={"/category/hiking"}>
+                            <img src={'./images/header/hiking-header.jpg'}alt={'./images/header/hiking-header.jpg'}/>
+                            <label>Hiking</label>
+                        </a>
                     </div>
                     <div>
-                        <img src={'./images/header/camping.jpg'}alt={'./images/header/camping.jpg'}/>
-                        <label>Camping</label>
+                        <a href={"/category/camping"}>
+                            <img src={'./images/header/camping.jpg'}alt={'./images/header/camping.jpg'}/>
+                            <label>Camping</label>
+                        </a>
                     </div>
                 </td>
             </div>

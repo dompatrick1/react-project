@@ -43,7 +43,7 @@ export const setCarts = (carts) => {
 };
 
     export const deleteCart = cartId => async dispatch => {
-        const response = await csrfFetch(`/api/reviews/${cartId}`, {
+        const response = await csrfFetch(`/api/carts/${cartId}`, {
             method: 'delete'
         });
 

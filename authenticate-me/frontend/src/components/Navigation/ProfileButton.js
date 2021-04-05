@@ -33,7 +33,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-    <a href={`/${sessionUser.id}/cart`}>
+    <a href={`/cart/${sessionUser.id}`}>
       <button className="cart-button">
           <i className="fa fa-shopping-cart"/>
       </button>
