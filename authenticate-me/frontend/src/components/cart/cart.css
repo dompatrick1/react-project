@@ -52,5 +52,41 @@ body {
 }
 
 .individual-cart button {
-    display:flex;
+    /* display:flex; */
+    text-align: center;
+    margin-top: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    background-color: rgba(253, 4, 4, .7);
+    color: white;
+}
+
+.cart-total {
+    /* display:inline-block; */
+    /* padding-left: 100px; */
+    margin-bottom: 10px;
+    font-size: 40px;
+    font-family: sans-serif;
+    word-spacing: 15px;
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+.checkout-button {
+    margin-left: 530px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 60px;
+    /* padding-bottom: 10px; */
+}
+
+.checkout-button button {
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 5px;
+    font-weight: bold;
 }

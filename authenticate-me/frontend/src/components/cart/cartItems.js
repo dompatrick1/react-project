@@ -33,10 +33,11 @@ function CartItems ({carts}) {
             productsArray.forEach(item => {
                 if (cart.productId === item.id && cart.userId === sessionUser.id) {
                     final.push(item)
-                    total += item.price
+                    total = total + Number(item.price)
                 }
             })
         })
+        console.log('this is the total', total)
         const handleDelete = async (e, product) => {
             // e.preventDefault()
             cartsList.forEach(cart => {
@@ -47,9 +48,9 @@ function CartItems ({carts}) {
             window.location.reload(false);
         }
 
-    // return (
-    //     <>
-            return final.map(product => {
+    return (
+        <>
+            {final.map(product => {
                 return (
                     <div className="cart-container">
                         {product ?
@@ -64,9 +65,13 @@ function CartItems ({carts}) {
                         : null}
                     </div>
                 )
-            })
-    //     </>
-    // )
+            })}
+            <p className="cart-total">{`Total: ${total}`}</p>
+            <p className="checkout-button">
+                <button>CHECKOUT</button>
+            </p>
+        </>
+    )
 
 }
 
