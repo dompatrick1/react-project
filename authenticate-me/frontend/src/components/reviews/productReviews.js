@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import {User} from {}
@@ -14,8 +14,9 @@ import './review.css'
         const usersList = useSelector(state => state.users)
         const reviews = useSelector(state => state.reviews)
         const dispatch = useDispatch();
-        const reviewsArray = Object.values(reviews)
-        const [deleteButton, setDeleteButton] = useState('false')
+        const reviewsArray = Object.values(reviews);
+        const [reviewState, setReviewState] = useState([...reviewsArray])
+        // const [deleteButton, setDeleteButton] = useState('false')
 
 
         useEffect(() => {
@@ -25,17 +26,20 @@ import './review.css'
 
         let reviewList = []
 
-        reviewsArray.forEach(review => {
-            if(review.productId == productId) {
-                reviewList.push(review)
+        reviewState.forEach(rev => {
+            if(rev.productId == productId) {
+                reviewList.push(rev)
             }
         })
 
 
         const handleDelete = async (e, review) => {
             e.preventDefault()
+            let arrayCopy = reviewState.filter(rev => rev !== review)
+            setReviewState(arrayCopy)
+
             dispatch(deleteReview(review.id))
-            window.location.reload(false);
+
         }
 
         return (
