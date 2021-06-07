@@ -1,4 +1,12 @@
-"scripts": {
+{
+  "name": "etsie_clone",
+  "version": "1.0.0",
+  "description": "A clone of Etsie",
+  "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
     "dev:backend": "npm install --prefix backend start",
@@ -7,3 +15,14 @@
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dompatrick1/react-project.git"
+  },
+  "author": "Dominic Patrick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dompatrick1/react-project/issues"
+  },
+  "homepage": "https://github.com/dompatrick1/react-project#readme"
+}
