@@ -20,13 +20,14 @@ export const addProducts = (products) => {
 
 //Thunks (Async Actions)
 export const getProducts = () => async dispatch => {
-  const response = await csrfFetch('/api/products');
+  const response = await csrfFetch('/api/products/');
 
   if(!response.ok) {
       throw response;
   }
   const products = await response.json();
   dispatch(setProducts(products))
+  return products
 }
 
 //Reducer

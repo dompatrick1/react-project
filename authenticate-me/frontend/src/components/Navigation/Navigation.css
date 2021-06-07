@@ -9,8 +9,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     z-index: 10;
-    /* top: 0;
-    left: 0; */
     width: 100%;
     grid-template-areas:
     "logo search sessionLinks"

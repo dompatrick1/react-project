@@ -6,9 +6,9 @@ const { Product } = require('../../db/models');
 const router = express.Router();
 
 router.get('/', asyncHandler(async function(req, res) {
-    const products = await Product.findAll();
+    const products = await Product.findAll({attributes: ['id', 'name', 'category', 'description', 'price', 'image']});
     // console.log('api/product.js-----', products[0].id)
-    res.json(products);
+    return res.json(products);
   }));
 
   //create a product

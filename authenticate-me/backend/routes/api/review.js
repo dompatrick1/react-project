@@ -8,7 +8,7 @@ const router = express.Router()
 router.get("/", asyncHandler(async(req, res) => {
     const reviews = await Review.findAll({attributes: ['id', 'review', 'userId', 'productId', 'createdAt', 'updatedAt']});
     // console.log('api/review.js-----', reviews[0].review)
-    res.json(reviews)
+    return res.json(reviews)
 }))
 
 router.post("/", asyncHandler(async(req, res) => {
@@ -45,8 +45,8 @@ router.put('/:id', asyncHandler(async(req, res) => {
 
 router.delete('/:id', asyncHandler(async(req, res) => {
 
-    await Review.destroy({where: {id: req.params.id}})
-    res.status(204).end()
+    let deleted = await Review.destroy({where: {id: req.params.id}})
+    return res.json(deleted)
 }));
 
 module.exports = router;

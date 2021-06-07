@@ -12,34 +12,31 @@ import './review.css'
         const { productId } = useParams();
         const sessionUser = useSelector(state => state.session.user);
         const usersList = useSelector(state => state.users)
-        const reviews = useSelector(state => state.reviews)
+        const reviews = useSelector(state => Object.values(state.reviews))
+        // const [review, setReview] = useState(reviews)
         const dispatch = useDispatch();
-        const reviewsArray = Object.values(reviews);
-        const [reviewState, setReviewState] = useState([...reviewsArray])
-        // const [deleteButton, setDeleteButton] = useState('false')
 
 
         useEffect(() => {
             dispatch(getReviews())
         },[dispatch])
 
+        // const reviewsArray = Object.values(reviews);
+        // const [reviewState, setReviewState] = useState(reviewsArray)
 
         let reviewList = []
 
-        reviewState.forEach(rev => {
+        reviews.forEach(rev => {
             if(rev.productId == productId) {
                 reviewList.push(rev)
             }
         })
 
-
+        // console.log(reviewState)
         const handleDelete = async (e, review) => {
             e.preventDefault()
-            let arrayCopy = reviewState.filter(rev => rev !== review)
-            setReviewState(arrayCopy)
-
-            dispatch(deleteReview(review.id))
-
+            await dispatch(deleteReview(review.id))
+            dispatch(getReviews())
         }
 
         return (

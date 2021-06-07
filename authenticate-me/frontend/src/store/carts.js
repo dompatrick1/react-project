@@ -50,6 +50,7 @@ export const setCarts = (carts) => {
         if (response.ok) {
             const cart = await response.json();
             dispatch(remove(cart.id))
+            return cart
         }
     };
 
@@ -61,6 +62,7 @@ export const setCarts = (carts) => {
     }
     const carts = await response.json();
     dispatch(setCarts(carts));
+    return carts
     }
 
     const initialState = {};

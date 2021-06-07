@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.get("/", asyncHandler(async(req, res) => {
     const carts = await Cart.findAll({attributes: ['id', 'userId', 'productId', 'createdAt', 'updatedAt']});
-    res.json(carts)
+    return res.json(carts)
 }))
 
 router.post("/", asyncHandler(async(req, res) => {
@@ -25,8 +25,8 @@ router.post("/", asyncHandler(async(req, res) => {
 
 router.delete('/:id', asyncHandler(async(req, res) => {
 
-    await Cart.destroy({where: {id: req.params.id}})
-    res.status(204).end()
+    let deleted = await Cart.destroy({where: {id: req.params.id}})
+    return res.json(deleted)
 }));
 
 module.exports = router;

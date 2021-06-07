@@ -71,16 +71,18 @@ const update = (review) => {
           const review = await response.json();
           dispatch(remove(review.id))
       }
+      return {}
   };
 
   export const getReviews = () => async dispatch => {
-    const response = await csrfFetch(`/api/reviews`);
+    const response = await csrfFetch(`/api/reviews/`);
 
     if (!response.ok) {
         throw response
     }
     const reviews = await response.json();
     dispatch(setReviews(reviews));
+    return reviews
 }
 
   const initialState = {};

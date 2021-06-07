@@ -25,25 +25,21 @@ function CampingCategory () {
 
     return (
         <>
-        <p className="camping-category">Featured camping Products</p>
+        <div className="category-container">
             {camping.length ?
                 camping.map(product => (
-                    <div>
-                        <td className="camping-page">
-                            <div>
-                                {product ?
-                                    <a href={`/${product.id}`}>
-                                        <img src={require(`${product.image}`).default}alt={''}/>
-                                        <label>{product.name}</label>
-                                        <label className="cost">{`$${product.price}`}</label>
-                                    </a>
-                                : null}
-                            </div>
-                        </td>
+                    <div className="individual-product">
+                        {product ?
+                            <a href={`/${product.id}`}>
+                                <img src={require(`${product.image}`).default}alt={''}/>
+                                <label>{product.name}</label>
+                                <label className="cost">{`$${product.price}`}</label>
+                            </a>
+                        : null}
                     </div>
                 ))
             : null}
-
+    </div>
         </>
     )
 }
