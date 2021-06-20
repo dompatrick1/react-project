@@ -90,8 +90,12 @@
 
 .add-review {
     grid-area: reviews;
-    margin-left: 170px;
+    /* margin-left: 170px; */
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .already-reviewed, .login-to-review {
