@@ -50,11 +50,19 @@
 .footer-categories {
     height: 3em;
     margin-top: 0px;
+    display: flex;
+    flex-direction: row;
     background-color: rgb(150, 5, 61);
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
     color:rgb(255, 174, 142);
 }
 .footer-categories p {
     margin: 0px;
-    padding-top: 15px;
+    /* padding-top: 15px; */
+}
+
+.footer-categories a {
+    padding-left: 5px;
 }

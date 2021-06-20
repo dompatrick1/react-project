@@ -250,8 +250,16 @@
 .footer {
     grid-area: footer;
     /* padding-top: 40px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     height: 3em;
     background-color: rgb(150, 5, 61);
-    text-align: center;
+    /* text-align: center; */
     color:rgb(255, 174, 142);
+}
+
+.footer a {
+    padding-left: 10px;
 }

@@ -215,6 +215,10 @@ function ProductsHome () {
                 </td>
                 <div className="footer">
                     <p>Created By Dominic Patrick</p>
+                    <a href="https://github.com/dompatrick1" class="fa fa-github"><span >Github</span></a>
+                    <a href="https://www.linkedin.com/in/dominic-patrick-935781113/" class="fa fa-linkedin"><span class="label">Linkedin</span></a>
+                    <a href="https://dompatrick1.github.io/" class="portfolio"><span >Portfolio</span></a>
+
                 </div>
         </div>
         </>
