@@ -12,9 +12,10 @@ function CreateReviewForm () {
     const [review, setReview] = useState('')
     const [newReview, setNewReview] = useState([])
     const [submitButton, setSubmitButton] = useState('')
+    const [editReview, setEditReview] = useState(true)
     const updateReview = (e) => setReview(e.target.value)
     const reviews = useSelector(state => state.reviews)
-    // console.log('@@@@@@@', sessionUser.username)
+
 
     const reviewsArray = Object.values(reviews)
     let reviewUserId = []
@@ -60,6 +61,12 @@ function CreateReviewForm () {
 
         }
 
+        const handleEdit = async (e, review) => {
+            e.preventDefault()
+            setEditReview(false)
+
+        }
+
 
         return (
             <>
@@ -78,6 +85,7 @@ function CreateReviewForm () {
                         <h1>{sessionUser.username}</h1>
                         <p key={review} >{Object.values(newReview)[0].userReview.review}</p>
                         <button onClick={handleDelete}>X</button>
+                        <button onClick={(e) => handleEdit(e, review)}>Edit</button>
                     </div>
                 : null}
                 <div>

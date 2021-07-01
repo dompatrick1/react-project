@@ -13,7 +13,7 @@ import './review.css'
         const sessionUser = useSelector(state => state.session.user);
         const usersList = useSelector(state => state.users)
         const reviews = useSelector(state => Object.values(state.reviews))
-        // const [review, setReview] = useState(reviews)
+        const [editReview, setEditReview] = useState(true)
         const dispatch = useDispatch();
 
 
@@ -21,8 +21,6 @@ import './review.css'
             dispatch(getReviews())
         },[dispatch])
 
-        // const reviewsArray = Object.values(reviews);
-        // const [reviewState, setReviewState] = useState(reviewsArray)
 
         let reviewList = []
 
@@ -39,20 +37,47 @@ import './review.css'
             dispatch(getReviews())
         }
 
+        const handleEdit = async (e, review) => {
+            e.preventDefault()
+            setEditReview(false)
+
+        }
+
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+
+
+
+        }
+
         return (
             <>
                 <div>
                     {reviewList.slice(0).reverse().map(review => {
                         return (
                         <div className="user-review">
-                            {review ?
+                            {review && editReview === true ?
                                 <div>
                                     <ReturnUsers review={review}/>
                                     <p key={review} className="test">{review.review}</p>
                                 </div>
+                            : editReview === false ?
+                                <form className="review-form">
+                                    <input
+                                        type="text"
+                                        placeholders="Leave a review"
+                                        required
+                                        value={review}
+                                        onChange={updateReview}
+                                    />
+                                    <button type='submit' onClick={handleSubmit}>Submit</button>
+                                </form>
                             : null}
                                 {sessionUser && review.userId === sessionUser.id ?
-                                    <button onClick={(e) => handleDelete(e, review)}>X</button>
+                                    <div>
+                                        <button onClick={(e) => handleDelete(e, review)}>X</button>
+                                        <button onClick={(e) => handleEdit(e, review)}>Edit</button>
+                                    </div>
                                 : null}
                         </div>
                         )
