@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createReview, deleteReview } from '../../store/reviews';
+import { createReview, deleteReview, getReviews } from '../../store/reviews';
 import ProductReviews from './productReviews'
 import '../product/product.css'
 
@@ -57,6 +57,7 @@ function CreateReviewForm () {
             setNewReview([productReview])
             setReview('')
             setSubmitButton("true")
+            await dispatch(getReviews())
 
 
         }

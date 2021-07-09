@@ -13,13 +13,15 @@ import './review.css'
         const sessionUser = useSelector(state => state.session.user);
         const usersList = useSelector(state => state.users)
         const reviews = useSelector(state => Object.values(state.reviews))
+        const [rev, setRev] = useState('')
         const [editReview, setEditReview] = useState(true)
+        const updateReview = (e) => setRev(e.target.value)
         const dispatch = useDispatch();
 
 
         useEffect(() => {
             dispatch(getReviews())
-        },[dispatch])
+        },[dispatch, editReview])
 
 
         let reviewList = []
@@ -39,7 +41,10 @@ import './review.css'
 
         const handleEdit = async (e, review) => {
             e.preventDefault()
+            await dispatch(getReviews())
             setEditReview(false)
+
+            setRev(review.review)
 
         }
 
@@ -61,13 +66,13 @@ import './review.css'
                                     <ReturnUsers review={review}/>
                                     <p key={review} className="test">{review.review}</p>
                                 </div>
-                            : editReview === false ?
+                            : editReview === false && sessionUser && review.userId === sessionUser.id ?
                                 <form className="review-form">
                                     <input
                                         type="text"
                                         placeholders="Leave a review"
                                         required
-                                        value={review}
+                                        value={rev}
                                         onChange={updateReview}
                                     />
                                     <button type='submit' onClick={handleSubmit}>Submit</button>
