@@ -48,13 +48,13 @@ const update = (review) => {
       }
   };
 
-  export const updateReview = data => async dispatch => {
-      const response = await csrfFetch(`/api/reviews/${data.id}`, {
+  export const updateReview = ({id, review, userId, productId}) => async dispatch => {
+      const response = await csrfFetch(`/api/reviews/${id}`, {
           method: 'put',
           headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({review, userId, productId})
         });
         if (response.ok) {
             const review = await response.json();

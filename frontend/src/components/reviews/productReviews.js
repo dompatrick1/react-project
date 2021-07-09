@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import {User} from {}
 import ReturnUsers from '../users/index'
-import { getReviews, deleteReview } from '../../store/reviews';
+import { getReviews, deleteReview, updateReview } from '../../store/reviews';
 import {getUsers} from '../../store/users'
 import './review.css'
 
@@ -48,10 +48,18 @@ import './review.css'
 
         }
 
-        const handleSubmit = async (e) => {
+        const handleSubmit = async (e, review) => {
             e.preventDefault();
 
-
+            const payload = {
+                id: review.id,
+                rev,
+                userId: review.userId,
+                productId: review.productId
+            }
+            await dispatch(updateReview(payload))
+            setEditReview(false)
+            dispatch(getReviews())
 
         }
 
@@ -73,9 +81,9 @@ import './review.css'
                                         placeholders="Leave a review"
                                         required
                                         value={rev}
-                                        onChange={updateReview}
+                                        onChange={e => updateReview(e)}
                                     />
-                                    <button type='submit' onClick={handleSubmit}>Submit</button>
+                                    <button type='submit' onClick={e => handleSubmit(e, review)}>Submit</button>
                                 </form>
                             : null}
                                 {sessionUser && review.userId === sessionUser.id ?
